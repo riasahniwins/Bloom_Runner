@@ -1,0 +1,127 @@
+<div class="card-header">
+    <div class="card-icon"></div>
+    <h4 class="card-title">
+        Add Client
+    </h4>
+</div>
+<form class="editForm col-sm-12" #clientForm="ngForm" (ngSubmit)="clientForm.valid && addClient(clientForm)">
+    <h6>Primary Information</h6>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #name="ngModel" placeholder="Name" [(ngModel)]="usersData.name" name="name"
+                    pattern="[a-zA-Z ]*$" required>
+                <mat-error *ngIf="name.hasError('required')"> Name is
+                    <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="name.hasError('pattern')"> Name is
+                    <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #email="ngModel" placeholder="Email" email="ngModel" [(ngModel)]="usersData.email"
+                    name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+                <mat-error *ngIf="email.hasError('required')">Email is
+                    <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="email.hasError('pattern')">Email is
+                    <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #phone="ngModel" phone="ngModel" [(ngModel)]="usersData.phone" placeholder="Phone"
+                    name="phone" pattern="^[0-9]*$" minlength="10" maxlength="10" required>
+
+                <mat-error *ngIf="phone.hasError('required')">
+                    Phone number is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="phone.hasError('minlength') || phone.hasError('pattern')">
+                    Phone number is <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-12">
+            <mat-form-field appearance="fill">
+                <textarea matInput #address="ngModel" address="ngModel" [(ngModel)]="usersData.address"
+                    placeholder="Address" name="address" required></textarea>
+                <mat-error *ngIf="address.hasError('required')">
+                    Address <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <h6>Billing Information</h6>
+    <div class="row">
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #billingName="ngModel" placeholder="Billing Name" [(ngModel)]="usersData.billingName"
+                    name="billingName" pattern="[a-zA-Z ]*$" required>
+                <mat-error *ngIf="billingName.hasError('required')"> Billing Name is
+                    <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="billingName.hasError('pattern')"> Billing Name is
+                    <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #billingContact="ngModel" billingContact="ngModel"
+                    [(ngModel)]="usersData.billingContact" placeholder="Billing Contact" name="billingContact"
+                    pattern="^[0-9]*$" minlength="10" maxlength="10" required>
+
+                <mat-error *ngIf="billingContact.hasError('required')">
+                    Billing Contact is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="billingContact.hasError('minlength') || billingContact.hasError('pattern')">
+                    Billing Contact is <strong>invalid</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #billingCity="ngModel" billingCity="ngModel" [(ngModel)]="usersData.billingCity"
+                    placeholder="Billing City" name="billingCity" required>
+                <mat-error *ngIf="billingCity.hasError('required')">
+                    Billing Contact is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #billingZip="ngModel" billingZip="ngModel" [(ngModel)]="usersData.billingZip"
+                    placeholder="Billing Zip Code" name="billingZip" maxlength="5" required>
+
+                <mat-error *ngIf="billingZip.hasError('required')">
+                    Billing Zip is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <input matInput #billingNote="ngModel" billingNote="ngModel" [(ngModel)]="usersData.billingNote"
+                    placeholder="Note" name="billingNote">
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+            <mat-form-field appearance="fill">
+                <textarea matInput #billingAddress="ngModel" billingAddress="ngModel"
+                    [(ngModel)]="usersData.billingAddress" placeholder="Billing Address" name="billingAddress"
+                    required></textarea>
+                <mat-error *ngIf="billingAddress.hasError('required')">
+                    Billing Address <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div class="col-sm-12 btn-position">
+        <button type="submit" class="btn btn-blue btn-padding">Submit</button>
+    </div>
+</form>

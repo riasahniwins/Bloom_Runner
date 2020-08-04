@@ -1,0 +1,63 @@
+<div class="col-sm-12">
+    <div class="right-nav">
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="week" (click)="getDataByView(4)" data-toggle="pill">Week</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="month" (click)="getDataByView(5)" data-toggle="pill">Month</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [class.active]="year" (click)="getDataByView(6)" data-toggle="pill">Year</a>
+            </li>
+
+        </ul>
+        <div class="loaderDiv" *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="ordertListPage">
+        <div class="orderData">
+            <div class="thumb">
+                <div class="thumbBody">
+                    <div class="row">
+                        <div class="sellingItems" *ngFor="let number of widgetsResponse">
+                            <div class="tsiCol tsiCol1">
+                                <i class="fa fa-user-o" aria-hidden="true"></i>
+                                Active Clients <span class="proListNumber"><a>{{number.ActiveClients}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol2">
+                                <i class="fa fa-trophy" aria-hidden="true"></i>
+                                Active Subscriptions<span
+                                    class="proListNumber"><a>{{number.ActiveSubscriptions}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol6">
+                                <i class="fa fa-ban" aria-hidden="true"></i>
+                                Cancelled Subscriptions<span
+                                    class="proListNumber"><a>{{number.CancelledSubscriptions}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol3">
+                                <i class="fa fa-user-times" aria-hidden="true"></i>
+                                Lost Clients <span class="proListNumber"><a>{{number.LostClients}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol4">
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                New Clients <span class="proListNumber"><a>{{number.NewClients}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol5">
+                                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                                Subscription Due<span class="proListNumber"><a>{{number.SubscriptionDue}}</a></span>
+                            </div>
+                            <div class="tsiCol tsiCol7">
+                                <i class="fa fa-repeat" aria-hidden="true"></i>
+                                Recurring Orders<span class="proListNumber"><a>{{number.RecurringOrders}}</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
